@@ -1,7 +1,15 @@
-import { Button, Stack, IconButton, Spacer } from "@chakra-ui/react";
+import {
+  Button,
+  Stack,
+  IconButton,
+  Spacer,
+  useColorMode,
+} from "@chakra-ui/react";
 import { MoonIcon } from "@chakra-ui/icons";
 
 export function Header() {
+  const { toggleColorMode } = useColorMode();
+
   return (
     <Stack direction="row" align="center">
       <Button colorScheme="teal" variant="ghost">
@@ -18,6 +26,7 @@ export function Header() {
         Yer İmleri
       </Button>
       <IconButton
+        onClick={toggleColorMode}
         aria-label="Night mode"
         colorScheme="teal"
         variant="ghost"
