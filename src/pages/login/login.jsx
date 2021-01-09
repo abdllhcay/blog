@@ -3,18 +3,10 @@ import { signin } from "../../services/auth";
 import { LoginView } from "./login.view";
 
 export function Login() {
-  async function login() {
-    const response = await signin();
-
+  async function onSubmit(data) {
+    const response = await signin(data);
     console.log(response);
   }
-
-  const onSubmit = (data) => {
-    return new Promise((resolve) => {
-      console.log(data);
-      resolve();
-    });
-  };
 
   return <LoginView onSubmit={onSubmit} />;
 }
