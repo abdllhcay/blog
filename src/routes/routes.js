@@ -13,8 +13,8 @@ export function Routes() {
       <Route path="/" component={Home} exact />
       <Route path="/login" component={Login} />
       <Route path="/posts" component={Posts} exact />
-      <Route path="/posts/:postId" component={PostDetail} />
       <PrivateRoute path="/posts/new" component={NewPost} />
+      <Route path="/posts/:postId" component={PostDetail} />
       <Route component={NotFound}></Route>
     </Switch>
   );
