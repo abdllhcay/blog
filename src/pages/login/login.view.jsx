@@ -1,13 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import {
-  Input,
-  Button,
-  Stack,
-  Container,
-  Heading,
-  Divider,
-} from "@chakra-ui/react";
+import { Input, Button, Stack, Container, Heading } from "@chakra-ui/react";
 
 export function LoginView(props) {
   const {
@@ -21,7 +14,6 @@ export function LoginView(props) {
       <Heading size="lg" mb="5">
         Giriş
       </Heading>
-      {/* <Divider mb="10" /> */}
       <form onSubmit={handleSubmit(props.onSubmit)}>
         <Stack spacing={3}>
           <Input
