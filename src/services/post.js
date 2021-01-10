@@ -13,3 +13,7 @@ export async function createPost(data) {
 export async function getPostList() {
   return await firestore.collection("posts").get();
 }
+
+export async function getPost(postId) {
+  return await firestore.collection("posts").doc(postId).get();
+}

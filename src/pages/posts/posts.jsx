@@ -13,7 +13,9 @@ export function Posts() {
   async function getPosts() {
     const posts = await getPostList();
     posts.forEach((p) => {
-      setPosts((current) => [...current, { id: p.id, data: p.data() }]);
+      let post = p.data();
+      post.id = p.id;
+      setPosts((current) => [...current, post]);
     });
 
     setLoading(false);

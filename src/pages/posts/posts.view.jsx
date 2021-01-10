@@ -21,10 +21,10 @@ export function PostsView(props) {
                   width="100%"
                 >
                   <Text fontSize="sm" color="gray.500" fontWeight="100" mr={4}>
-                    {p.data.date.toDate().getDate()}{" "}
-                    {monthNames[p.data.date.toDate().getMonth()]}
+                    {p.date.toDate().getDate()}{" "}
+                    {monthNames[p.date.toDate().getMonth()]}
                   </Text>
-                  <Text>{p.data.title}</Text>
+                  <Text>{p.title}</Text>
                 </Button>
               </Link>
             ))}
