@@ -19,7 +19,13 @@ export function PostDetailView(props) {
             {date?.getDate()} {monthNames[date?.getMonth()]}{" "}
             {date?.getFullYear()}
           </Text>
-          <Text mt={5}>{props.post.content}</Text>
+          <Text mt={5}>
+            <div
+              dangerouslySetInnerHTML={{
+                __html: props.post.content,
+              }}
+            ></div>
+          </Text>
         </Fragment>
       )}
     </div>
