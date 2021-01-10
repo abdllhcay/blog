@@ -18,10 +18,10 @@ export function LoginView(props) {
 
   return (
     <Container maxW="sm">
-      <Heading size="lg" mb="2">
+      <Heading size="lg" mb="5">
         Giriş
       </Heading>
-      <Divider mb="10" />
+      {/* <Divider mb="10" /> */}
       <form onSubmit={handleSubmit(props.onSubmit)}>
         <Stack spacing={3}>
           <Input
