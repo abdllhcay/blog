@@ -1,5 +1,6 @@
 import React from "react";
+import ReactMarkdown from "react-markdown";
 
 export function Home() {
-  return <div>Hi,</div>;
+  return <ReactMarkdown>## Heading 2 </ReactMarkdown>;
 }
