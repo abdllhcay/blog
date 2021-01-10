@@ -10,7 +10,7 @@ export function Routes() {
     <Switch>
       <Route path="/" component={Home} exact />
       <Route path="/login" component={Login} />
-      <Route path="/posts" component={Posts} />
+      <Route path="/posts" component={Posts} exact />
       <PrivateRoute path="/posts/new" component={Login} />
       <Route component={NotFound}></Route>
     </Switch>
