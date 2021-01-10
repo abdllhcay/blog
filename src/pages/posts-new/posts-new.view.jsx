@@ -1,6 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { Input, Button, Stack, Textarea, Heading } from "@chakra-ui/react";
+import { Input, Button, Stack, Textarea } from "@chakra-ui/react";
 
 export function NewPostView(props) {
   const {
