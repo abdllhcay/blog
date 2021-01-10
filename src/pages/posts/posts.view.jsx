@@ -1,6 +1,6 @@
 import { Link, Button, Stack, Text, Skeleton } from "@chakra-ui/react";
 import { Link as RouterLink } from "react-router-dom";
-import { monthNames } from "../../utils/statics";
+import { shortMonthNames } from "../../utils/statics";
 
 export function PostsView(props) {
   return (
@@ -22,7 +22,7 @@ export function PostsView(props) {
                 >
                   <Text fontSize="sm" color="gray.500" fontWeight="100" mr={4}>
                     {p.date.toDate().getDate()}{" "}
-                    {monthNames[p.date.toDate().getMonth()]}
+                    {shortMonthNames[p.date.toDate().getMonth()]}
                   </Text>
                   <Text>{p.title}</Text>
                 </Button>
