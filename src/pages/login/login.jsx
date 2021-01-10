@@ -4,8 +4,8 @@ import { LoginView } from "./login.view";
 
 export function Login() {
   async function onSubmit(data) {
-    const response = await signin(data);
-    console.log(response);
+    const isSuccess = await signin(data);
+    localStorage.setItem("loggedIn", isSuccess);
   }
 
   return <LoginView onSubmit={onSubmit} />;
