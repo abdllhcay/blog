@@ -24,7 +24,9 @@ export function PostDetailView(props) {
           <Text mt={5}>
             <ReactMarkdown
               renderers={ChakraUIRenderer()}
-              source={props.post.content}
+              source={props.post.content
+                ?.replaceAll("\\n", "\n")
+                .replaceAll("\\", "")}
               escapeHtml={false}
             />
           </Text>

@@ -2,6 +2,7 @@ import { Route, Switch } from "react-router-dom";
 import { Home } from "../pages/home";
 import { Login } from "../pages/login";
 import { AboutMe } from "../pages/about-me";
+import { Bookmarks } from "../pages/bookmarks";
 import { Posts } from "../pages/posts";
 import { NewPost } from "../pages/posts-new";
 import { PostDetail } from "../pages/posts-detail";
@@ -14,6 +15,7 @@ export function Routes() {
       <Route path="/" component={Home} exact />
       <Route path="/login" component={Login} />
       <Route path="/about-me" component={AboutMe} />
+      <Route path="/bookmarks" component={Bookmarks} />
       <Route path="/posts" component={Posts} exact />
       <PrivateRoute path="/posts/new" component={NewPost} />
       <Route path="/posts/:postId" component={PostDetail} />
