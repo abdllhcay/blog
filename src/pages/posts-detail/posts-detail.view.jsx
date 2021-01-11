@@ -1,7 +1,5 @@
 import React, { Fragment } from "react";
-import { Heading, Text, Skeleton } from "@chakra-ui/react";
-import ReactMarkdown from "react-markdown";
-import ChakraUIRenderer from "chakra-ui-markdown-renderer";
+import { Heading, Text, Skeleton, Box } from "@chakra-ui/react";
 import { monthNames } from "../../utils/statics";
 
 export function PostDetailView(props) {
@@ -22,13 +20,16 @@ export function PostDetailView(props) {
             {date?.getFullYear()}
           </Text>
           <Text mt={5}>
-            <ReactMarkdown
-              renderers={ChakraUIRenderer()}
-              source={props.post.content
-                ?.replaceAll("\\n", "\n")
-                .replaceAll("\\", "")}
-              escapeHtml={false}
-            />
+            <Box
+              dangerouslySetInnerHTML={{
+                __html: props.post.content,
+              }}
+              sx={{
+                "& h3": {
+                  fontWeight: "bold",
+                },
+              }}
+            ></Box>
           </Text>
         </Fragment>
       )}
