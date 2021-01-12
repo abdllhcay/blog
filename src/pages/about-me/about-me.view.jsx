@@ -6,8 +6,8 @@ export function AboutMeView() {
     <div>
       <p>
         Merhaba, ben Abdullah. Kişisel makalelerimi yayınladığım ve biraz da
-        sizi hiç ilgilendirmeyen şeylerden bahsettiğim bloguma hoşgeldiniz.
-        Maksat insanlara bir faydamız dokunsun ;) [Bir yazılımcı atasözü]
+        ondan bundan bahsettiğim bloguma hoşgeldiniz. Maksat insanlara bir
+        faydamız dokunsun ;)
       </p>
       <Stack direction="row" mt={5}>
         <Link href="https://www.linkedin.com/in/abdullahcay/" isExternal>

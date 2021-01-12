@@ -1,11 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import { useForm } from "react-hook-form";
-import { Input, Button, Stack, Textarea } from "@chakra-ui/react";
-// import { Editor } from "react-draft-wysiwyg";
-import { EditorState } from "draft-js";
-import { stateToHTML } from "draft-js-export-html";
-// import "../../../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
-import { Editor, createEditorState, BLOCK_BUTTONS } from "medium-draft";
+import { Input, Button, Stack } from "@chakra-ui/react";
+import { Editor, BLOCK_BUTTONS } from "medium-draft";
 import "medium-draft/lib/index.css";
 
 const blockButtons = [
@@ -30,16 +26,11 @@ const blockButtons = [
 ].concat(BLOCK_BUTTONS);
 
 export function NewPostView(props) {
-  const [editorState, setEditorState] = useState(createEditorState());
   const {
     register,
     handleSubmit,
     formState: { isSubmitting },
   } = useForm();
-
-  function onEditorStateChange(editorState) {
-    setEditorState(editorState);
-  }
 
   function myBlockStyleFn(contentBlock) {
     const type = contentBlock.getType();
@@ -47,8 +38,6 @@ export function NewPostView(props) {
       return "superFancyBlockquote";
     }
   }
-
-  console.log(stateToHTML(editorState.getCurrentContent()));
 
   return (
     <form onSubmit={handleSubmit(props.onSubmit)}>
@@ -59,23 +48,14 @@ export function NewPostView(props) {
           placeholder="Başlık"
           ref={register({ required: true })}
         />
-        {/* <Textarea
-          name="content"
-          type="text"
+        <Editor
+          editorState={props.editorState}
+          onChange={props.onEditorStateChange}
+          sideButtons={[]}
+          blockButtons={blockButtons}
+          blockStyleFn={myBlockStyleFn}
           placeholder="İçerik"
-          ref={register({ required: true })}
-        /> */}
-        <div style={{ border: "1px solid" }}>
-          <Editor
-            // customStyleMap={styleMap}
-            editorState={editorState}
-            onChange={onEditorStateChange}
-            sideButtons={[]}
-            blockButtons={blockButtons}
-            blockStyleFn={myBlockStyleFn}
-            placeholder="Type your text"
-          />
-        </div>
+        />
       </Stack>
 
       <Button mt={4} colorScheme="teal" isLoading={isSubmitting} type="submit">
