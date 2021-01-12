@@ -13,11 +13,6 @@ const blockButtons = [
     description: "Heading 2",
   },
   {
-    label: "</>",
-    style: "code-block",
-    description: "Code Block",
-  },
-  {
     label: "●",
     style: "unordered-list-item",
     description: "Unordered List",
@@ -41,7 +36,6 @@ const toolbarConfig = {
   block: [
     "header-one",
     "header-two",
-    "code-block",
     "unordered-list-item",
     "ordered-list-item",
   ],
