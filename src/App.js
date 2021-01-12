@@ -2,6 +2,7 @@ import { Container } from "@chakra-ui/react";
 import { Header } from "./components/header";
 import { Footer } from "./components/footer";
 import { Routes } from "./routes";
+import "./App.css";
 
 function App() {
   return (
