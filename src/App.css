@@ -1,7 +1,13 @@
-.superFancyBlockquote {
-  color: #999;
-  font-style: italic;
-  text-align: center;
+.editor-header-one {
+  font-size: 1.875rem;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.editor-header-two {
+  font-size: 1.25rem;
+  line-height: 1.2;
+  font-weight: 700;
 }
 
 .md-RichEditor-root {

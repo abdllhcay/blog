@@ -1,29 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { Input, Button, Stack } from "@chakra-ui/react";
-import { Editor, BLOCK_BUTTONS } from "medium-draft";
-import "medium-draft/lib/index.css";
-
-const blockButtons = [
-  {
-    label: "H1",
-    style: "header-one",
-    icon: "header",
-    description: "Heading 1",
-  },
-  {
-    label: "H2",
-    style: "header-two",
-    icon: "header",
-    description: "Heading 2",
-  },
-  {
-    label: "code",
-    style: "code-block",
-    icon: "code",
-    description: "Heading 2",
-  },
-].concat(BLOCK_BUTTONS);
+import { Input, Button, Stack, Heading } from "@chakra-ui/react";
+import { Editor } from "../../components/editor";
 
 export function NewPostView(props) {
   const {
@@ -31,13 +9,6 @@ export function NewPostView(props) {
     handleSubmit,
     formState: { isSubmitting },
   } = useForm();
-
-  function myBlockStyleFn(contentBlock) {
-    const type = contentBlock.getType();
-    if (type === "header-one") {
-      return "superFancyBlockquote";
-    }
-  }
 
   return (
     <form onSubmit={handleSubmit(props.onSubmit)}>
@@ -51,10 +22,6 @@ export function NewPostView(props) {
         <Editor
           editorState={props.editorState}
           onChange={props.onEditorStateChange}
-          sideButtons={[]}
-          blockButtons={blockButtons}
-          blockStyleFn={myBlockStyleFn}
-          placeholder="İçerik"
         />
       </Stack>
 
