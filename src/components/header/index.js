@@ -1,3 +1,4 @@
+import React, { Fragment } from "react";
 import {
   Button,
   Stack,
@@ -5,9 +6,15 @@ import {
   Spacer,
   useColorMode,
   Link,
+  Menu,
+  MenuItem,
+  MenuButton,
+  MenuList,
+  MenuDivider,
 } from "@chakra-ui/react";
-import { MoonIcon } from "@chakra-ui/icons";
+import { MoonIcon, ChevronDownIcon } from "@chakra-ui/icons";
 import { Link as RouterLink } from "react-router-dom";
+import { isLoggedIn, removeCurrentUser } from "../../utils/user";
 
 export function Header() {
   const { toggleColorMode } = useColorMode();
@@ -35,6 +42,28 @@ export function Header() {
           Yer İmleri
         </Button>
       </Link>
+      {isLoggedIn() ? (
+        <Menu>
+          <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
+            Admin
+          </MenuButton>
+          <MenuList>
+            <MenuItem>
+              <Link
+                as={RouterLink}
+                to="/posts/new"
+                style={{ textDecoration: "none" }}
+              >
+                Yeni Yazı
+              </Link>
+            </MenuItem>
+            <MenuDivider />
+            <MenuItem onClick={removeCurrentUser}>Çıkış</MenuItem>
+          </MenuList>
+        </Menu>
+      ) : (
+        <Fragment></Fragment>
+      )}
       <IconButton
         onClick={toggleColorMode}
         aria-label="Night mode"
