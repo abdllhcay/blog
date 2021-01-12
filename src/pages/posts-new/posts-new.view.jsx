@@ -1,13 +1,36 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Input, Button, Stack, Textarea } from "@chakra-ui/react";
-import { Editor } from "react-draft-wysiwyg";
+// import { Editor } from "react-draft-wysiwyg";
 import { EditorState } from "draft-js";
 import { stateToHTML } from "draft-js-export-html";
-import "../../../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
+// import "../../../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
+import { Editor, createEditorState, BLOCK_BUTTONS } from "medium-draft";
+import "medium-draft/lib/index.css";
+
+const blockButtons = [
+  {
+    label: "H1",
+    style: "header-one",
+    icon: "header",
+    description: "Heading 1",
+  },
+  {
+    label: "H2",
+    style: "header-two",
+    icon: "header",
+    description: "Heading 2",
+  },
+  {
+    label: "code",
+    style: "code-block",
+    icon: "code",
+    description: "Heading 2",
+  },
+].concat(BLOCK_BUTTONS);
 
 export function NewPostView(props) {
-  const [editorState, setEditorState] = useState(EditorState.createEmpty());
+  const [editorState, setEditorState] = useState(createEditorState());
   const {
     register,
     handleSubmit,
@@ -42,16 +65,17 @@ export function NewPostView(props) {
           placeholder="İçerik"
           ref={register({ required: true })}
         /> */}
-        <Editor
-          // customStyleMap={styleMap}
-          blockStyleFn={myBlockStyleFn}
-          editorState={editorState}
-          editorStyle={{ border: "1px solid" }}
-          onEditorStateChange={onEditorStateChange}
-          toolbar={{
-            options: ["inline"],
-          }}
-        />
+        <div style={{ border: "1px solid" }}>
+          <Editor
+            // customStyleMap={styleMap}
+            editorState={editorState}
+            onChange={onEditorStateChange}
+            sideButtons={[]}
+            blockButtons={blockButtons}
+            blockStyleFn={myBlockStyleFn}
+            placeholder="Type your text"
+          />
+        </div>
       </Stack>
 
       <Button mt={4} colorScheme="teal" isLoading={isSubmitting} type="submit">

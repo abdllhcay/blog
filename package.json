@@ -16,6 +16,7 @@
     "firebase": "^8.2.2",
     "framer-motion": "^3.2.0",
     "install": "^0.13.0",
+    "medium-draft": "^0.5.18",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-draft-wysiwyg": "^1.14.5",

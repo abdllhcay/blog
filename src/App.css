@@ -3,3 +3,7 @@
   font-style: italic;
   text-align: center;
 }
+
+.md-RichEditor-root {
+  padding: 10px 15px;
+}
