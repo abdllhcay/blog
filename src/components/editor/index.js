@@ -1,4 +1,4 @@
-import { Editor as DraftEditor, INLINE_BUTTONS } from "medium-draft";
+import { Editor as DraftEditor } from "medium-draft";
 import "medium-draft/lib/index.css";
 
 const blockButtons = [
@@ -13,6 +13,11 @@ const blockButtons = [
     description: "Heading 2",
   },
   {
+    label: "</>",
+    style: "code-block",
+    description: "Code Block",
+  },
+  {
     label: "●",
     style: "unordered-list-item",
     description: "Unordered List",
@@ -24,22 +29,15 @@ const blockButtons = [
   },
 ];
 
-const inlineButtons = [
-  {
-    label: "``",
-    style: "CODE",
-    description: "Code",
-  },
-].concat(INLINE_BUTTONS);
-
 const toolbarConfig = {
   block: [
     "header-one",
     "header-two",
+    "code-block",
     "unordered-list-item",
     "ordered-list-item",
   ],
-  inline: ["BOLD", "ITALIC", "UNDERLINE", "CODE", "hyperlink"],
+  inline: ["BOLD", "ITALIC", "UNDERLINE", "hyperlink"],
 };
 
 function blockStyleFn(contentBlock) {
@@ -61,7 +59,6 @@ export function Editor(props) {
       sideButtons={[]}
       toolbarConfig={toolbarConfig}
       blockButtons={blockButtons}
-      inlineButtons={inlineButtons}
       blockStyleFn={blockStyleFn}
       placeholder="İçerik"
     />
