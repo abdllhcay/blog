@@ -15,7 +15,7 @@ export function Bookmarks() {
 
     if (res.data.result) {
       setBookmarks(res.data.items);
-      // setLoading(false);
+      setLoading(false);
     }
   }
 
