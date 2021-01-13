@@ -2,7 +2,7 @@ import { Link, Button, Text } from "@chakra-ui/react";
 import { Link as RouterLink } from "react-router-dom";
 import { shortMonthNames } from "../../utils/statics";
 
-export function PostLink(props) {
+export function PostItem(props) {
   return (
     <Link
       as={RouterLink}

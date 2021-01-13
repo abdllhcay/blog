@@ -5,8 +5,12 @@ export async function createPost(data) {
   return await firestore.collection("posts").add(data);
 }
 
-export async function getPostList() {
-  return await firestore.collection("posts").get();
+export async function getPostList({ size } = {}) {
+  return await firestore
+    .collection("posts")
+    .orderBy("date", "desc")
+    .limit(size)
+    .get();
 }
 
 export async function getPost(postId) {
