@@ -1,6 +1,8 @@
-import { Stack, Skeleton, VStack, StackDivider } from "@chakra-ui/react";
+import { Stack, VStack, StackDivider } from "@chakra-ui/react";
 import { PostItem } from "../../components/post-item";
+import { PostSkeleton } from "../../components/post-skeleton";
 import { BookmarkItem } from "../../components/bookmark-item";
+import { BookmarkSkeleton } from "../../components/bookmark-skeleton";
 import { HomeDivider } from "../../components/home-divider";
 import { HomeHeading } from "../../components/home-heading";
 
@@ -10,13 +12,15 @@ export function HomeView(props) {
       <HomeHeading>Son Yazılar</HomeHeading>
       <HomeDivider />
       <Stack mb={16}>
-        {props.loading
-          ? Array.from(Array(3), (e, i) => <Skeleton height="40px" mb={4} />)
-          : props.posts.map((p) => <PostItem post={p} />)}
+        <PostSkeleton loading={props.loading} />
+        {props.posts.map((p) => (
+          <PostItem post={p} />
+        ))}
       </Stack>
       <HomeHeading>Son Yer İmleri</HomeHeading>
       <HomeDivider />
-      <VStack spacing={6} align="stretch" divider={<StackDivider />}>
+      <BookmarkSkeleton loading={props.loading} />
+      <VStack spacing={6} mt={8} align="stretch" divider={<StackDivider />}>
         {props.bookmarks.map((item) => (
           <BookmarkItem bookmark={item} />
         ))}
