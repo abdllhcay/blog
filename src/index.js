@@ -9,7 +9,7 @@ const theme = extendTheme(customTheme);
 
 ReactDOM.render(
   <ChakraProvider theme={theme}>
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <App />
     </BrowserRouter>
   </ChakraProvider>,
