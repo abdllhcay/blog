@@ -7,7 +7,7 @@ import "./App.css";
 function App() {
   return (
     <div>
-      <Container maxW="2xl" mt={5}>
+      <Container maxW="4xl" mt={5}>
         <Header />
       </Container>
       <Container maxW="4xl" mt={20}>

@@ -1,7 +1,6 @@
 import { Box } from "@chakra-ui/react";
 
 export function ContentBox(props) {
-  console.log(props.text);
   return (
     <Box
       dangerouslySetInnerHTML={{

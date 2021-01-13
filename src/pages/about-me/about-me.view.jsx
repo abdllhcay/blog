@@ -1,9 +1,11 @@
 import { IconButton, Link, Icon, Stack } from "@chakra-ui/react";
 import { FaLinkedin, FaGithub, FaMedium } from "react-icons/fa";
+import { PageHeading } from "../../components/page-heading";
 
 export function AboutMeView() {
   return (
     <div>
+      <PageHeading title="Hakkımda">Yazılımcı, mahluk, sıkılmış</PageHeading>
       <p>
         Merhaba, ben Abdullah. Kişisel makalelerimi yayınladığım ve biraz da
         ondan bundan bahsettiğim bloguma hoşgeldiniz. Maksat insanlara bir

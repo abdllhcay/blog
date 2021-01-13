@@ -30,6 +30,5 @@ export function Home() {
 
     setLoading(false);
   }
-
   return <HomeView posts={posts} bookmarks={bookmarks} loading={loading} />;
 }

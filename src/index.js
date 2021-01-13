@@ -7,6 +7,8 @@ import customTheme from "./styles/theme";
 
 const theme = extendTheme(customTheme);
 
+console.log("Don't break anything ;)");
+
 ReactDOM.render(
   <ChakraProvider theme={theme}>
     <BrowserRouter basename={process.env.PUBLIC_URL}>
