@@ -6,17 +6,14 @@ import { getBookmarkList } from "../../services/bookmark";
 export function Home() {
   const [posts, setPosts] = useState([]);
   const [bookmarks, setBookmarks] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState({ posts: true, bookmark: true });
 
   useEffect(() => {
     getData();
   }, []);
 
   async function getData() {
-    const [posts, bookmarks] = await Promise.all([
-      getPostList({ size: 3 }),
-      getBookmarkList({ size: 2 }),
-    ]);
+    const posts = await getPostList({ size: 3 });
 
     posts.forEach((p) => {
       let post = p.data();
@@ -24,11 +21,15 @@ export function Home() {
       setPosts((current) => [...current, post]);
     });
 
+    setLoading((prev) => ({ ...prev, posts: false }));
+
+    const bookmarks = await getBookmarkList({ size: 2 });
+
     if (bookmarks.data.result) {
       setBookmarks(bookmarks.data.items);
     }
 
-    setLoading(false);
+    setLoading((prev) => ({ ...prev, bookmark: false }));
   }
   return <HomeView posts={posts} bookmarks={bookmarks} loading={loading} />;
 }

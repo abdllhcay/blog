@@ -12,14 +12,14 @@ export function HomeView(props) {
       <HomeHeading>Son Yazılar</HomeHeading>
       <HomeDivider />
       <Stack mb={16}>
-        <PostSkeleton loading={props.loading} />
+        <PostSkeleton loading={props.loading.posts} />
         {props.posts.map((p) => (
           <PostItem post={p} />
         ))}
       </Stack>
       <HomeHeading>Son Yer İmleri</HomeHeading>
       <HomeDivider />
-      <BookmarkSkeleton loading={props.loading} />
+      <BookmarkSkeleton loading={props.loading.bookmark} />
       <VStack spacing={6} mt={8} align="stretch" divider={<StackDivider />}>
         {props.bookmarks.map((item) => (
           <BookmarkItem bookmark={item} />
