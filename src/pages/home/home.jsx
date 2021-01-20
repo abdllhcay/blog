@@ -27,9 +27,8 @@ export function Home() {
 
     if (bookmarks.data.result) {
       setBookmarks(bookmarks.data.items);
+      setLoading((prev) => ({ ...prev, bookmark: false }));
     }
-
-    setLoading((prev) => ({ ...prev, bookmark: false }));
   }
   return <HomeView posts={posts} bookmarks={bookmarks} loading={loading} />;
 }

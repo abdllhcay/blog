@@ -7,7 +7,6 @@ export async function getBookmarkList({ size } = {}) {
       headers: {
         Authorization: `Bearer ${process.env.REACT_APP_RAINDROP_TOKEN}`, //the token is a variable which holds the token
       },
-      timeout: 2,
     }
   );
 }
